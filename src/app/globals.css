@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:      #07070f;
+  --surf:    #0f0f1a;
+  --surf2:   #141424;
+  --border:  #1c1c30;
+  --tx:      #e8e8f8;
+  --tx2:     #7070a0;
+  --tx3:     #3a3a60;
+  --ac:      #7fff6e;
+  --ac2:     #00d4ff;
+  --warn:    #f5c842;
+  --red:     #ff5a5a;
+  --font:    var(--font-syne), sans-serif;
+  --mono:    var(--font-mono), monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background:  var(--bg);
+  color:       var(--tx);
+  min-height:  100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surf); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+
+/* Focus ring */
+:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; border-radius: 4px; }
+
+/* Seleção */
+::selection { background: rgba(127,255,110,.2); }
+
+/* Animações globais */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-up  { animation: fadeUp .4s ease both; }
+.animate-pulse-sm { animation: pulse 2s ease infinite; }
+.animate-spin     { animation: spin .8s linear infinite; }
+
+/* Delay helpers */
+.delay-100 { animation-delay: .1s; }
+.delay-200 { animation-delay: .2s; }
+.delay-300 { animation-delay: .3s; }
